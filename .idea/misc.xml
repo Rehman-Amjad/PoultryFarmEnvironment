@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/A Newwwwwwwww Project 2021/Project 2023 new one/Project DPS/Smart Aviculture App/PoultryFarmEnvironment/app/src/main/res/menu/menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/layout/activity_bulb.xml" value="0.1796875" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/layout/activity_dashboard_screen.xml" value="0.1796875" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/layout/activity_fan_screen.xml" value="0.1796875" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/layout/activity_humidity_screen.xml" value="0.1796875" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/layout/activity_login_screen.xml" value="0.1796875" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/layout/activity_shower.xml" value="0.165625" />
+        <entry key="..\:/Users/Zahid/Downloads/PoultryFarmEnvironment/app/src/main/res/menu/menu.xml" value="0.1796875" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:elevation="5dp"
+    android:layout_margin="15dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/Green"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:layout_height="150dp"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_id"
+                />
+
+            <TextView
+                android:id="@+id/tvId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
+
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+
+                android:src="@drawable/temperature_white"
+               />
+            <TextView
+                android:id="@+id/tv_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Temperature:"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
+
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/humidity_temp"
+                />
+
+            <TextView
+                android:id="@+id/tv_humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Humidity: "
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
+
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_date_white"
+                />
+
+            <TextView
+                android:id="@+id/tv_DateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DateTime: "
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

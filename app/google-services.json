@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "916191978131",
+    "firebase_url": "https://poultry-farm-environment-default-rtdb.firebaseio.com",
+    "project_id": "poultry-farm-environment",
+    "storage_bucket": "poultry-farm-environment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916191978131:android:d9229d6b4dbcc4920ce366",
+        "android_client_info": {
+          "package_name": "com.example.poultryfarmenvironment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916191978131-qh9pdfqc1sk89o77i414flusg8ucgqqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.poultryfarmenvironment",
+            "certificate_hash": "3ccc6c93c369273b490a758f99c780cf6c1dd541"
+          }
+        },
+        {
+          "client_id": "916191978131-uf84m82jvai9ghjgntkb3j8rsbj8joj2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbIzMLbTHZVifM_jTEwjC7nopAJ1VGVLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916191978131-uf84m82jvai9ghjgntkb3j8rsbj8joj2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

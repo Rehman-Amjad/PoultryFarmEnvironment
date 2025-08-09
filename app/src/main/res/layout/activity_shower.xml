@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center|top"
+        >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+
+            android:src="@drawable/ic_back_arrow"
+            android:layout_gravity="start"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Please wait fetching data on database"
+                android:textColor="@color/Green"
+                android:textSize="16sp"
+
+                />
+
+            <ImageView
+                android:id="@+id/bulb_off_image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/shower_off"
+                android:visibility="invisible"
+                android:layout_below="@id/tv_message"
+                />
+
+            <ImageView
+                android:id="@+id/bulb_on_image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/shower_on"
+                android:visibility="gone"
+                android:layout_below="@id/tv_message"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/layout_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_below="@id/bulb_on_image"
+                >
+                <Button
+                    android:id="@+id/btn_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ON"
+                    android:backgroundTint="@color/Green"
+                    android:layout_marginRight="5dp"
+
+                    />
+
+                <Button
+                    android:id="@+id/btn_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OFF"
+                    android:layout_marginLeft="5dp"
+                    />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_hum_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Result:"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#F44336"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                android:layout_below="@id/layout_one"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/Green"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/tv_hum_temp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

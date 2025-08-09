@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PoultryFarmEnvironment">
+        <activity
+            android:name=".ShowerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BulbActivity"
+            android:exported="false" />
+        <activity android:name=".FireShowData"
+            android:exported="false"
+            />
+        <activity android:name=".FanScreen"
+            android:exported="false"
+            />
+        <activity android:name=".TemperatureScreen"
+            android:exported="false"
+            />
+        <activity android:name=".HumidityScreen"
+            android:exported="false"
+            />
+        <activity android:name=".DashboardScreen"
+            android:exported="false"
+            />
+        <activity android:name=".LoginScreen"
+            android:exported="false"
+            />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
