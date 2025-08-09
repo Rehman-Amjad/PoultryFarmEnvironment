@@ -1,19 +1,22 @@
 package com.example.poultryfarmenvironment;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -26,28 +29,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class HumidityScreen extends AppCompatActivity {
+public class BirdWeightActivity extends AppCompatActivity {
 
-    TextView tv_temperature,tv_temp_dateTime,tv_humidity;
+    TextView tv_temperature,tv_temp_dateTime;
     ImageView img;
-
 
     Button btn_back;
 
     FirebaseDatabase database;
     DatabaseReference myRef;
     String time,date;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_humidity_screen);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_bird_weight);
 
         tv_temperature=findViewById(R.id.tv_temperature);
         tv_temp_dateTime=findViewById(R.id.tv_temp_dateTime);
         img=findViewById(R.id.img);
         btn_back=findViewById(R.id.btn_back);
-        tv_humidity=findViewById(R.id.tv_humidity);
 
         tv_temp_dateTime.setVisibility(View.INVISIBLE);
 
@@ -57,15 +58,14 @@ public class HumidityScreen extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("PoultryData");
 
+
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                String value = snapshot.child("Humidity").getValue(String.class);
-                String temp = snapshot.child("Temperature").getValue(String.class);
+                String value = snapshot.child("Birdweight").getValue(String.class);
                 String fireImage = snapshot.child("img").getValue(String.class);
-                tv_humidity.setText(value+" %");
-                tv_temperature.setText(temp+"C");
+                tv_temperature.setText(value+" gm");
                 tv_temp_dateTime.setVisibility(View.VISIBLE);
                 tv_temp_dateTime.setText(time+" "+date);
 
@@ -74,7 +74,6 @@ public class HumidityScreen extends AppCompatActivity {
                 imageBytes = Base64.decode(fireImage, Base64.DEFAULT);
                 Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
                 img.setImageBitmap(decodedImage);
-
 
             }
 
@@ -100,21 +99,17 @@ public class HumidityScreen extends AppCompatActivity {
         });
 
 
-
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                Intent back_Intent = new Intent(HumidityScreen.this,DashboardScreen.class);
+                Intent back_Intent = new Intent(BirdWeightActivity.this,DashboardScreen.class);
                 startActivity(back_Intent);
                 finish();
 
             }
         });
-
-
-
 
     }
 

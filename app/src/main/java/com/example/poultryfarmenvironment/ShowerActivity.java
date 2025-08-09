@@ -28,7 +28,7 @@ import java.util.Locale;
 public class ShowerActivity extends AppCompatActivity {
 
     ImageView img_back,bulb_off_image,bulb_on_image;
-    TextView tv_message;
+    TextView tv_message,tv_temp_dateTime;
 
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -47,6 +47,7 @@ public class ShowerActivity extends AppCompatActivity {
         tv_message = findViewById(R.id.tv_message);
         btn_on = findViewById(R.id.btn_on);
         btn_off = findViewById(R.id.btn_off);
+        tv_temp_dateTime = findViewById(R.id.tv_temp_dateTime);
 
         img_back.setOnClickListener(v -> {
             onBackPressed();
@@ -56,7 +57,7 @@ public class ShowerActivity extends AppCompatActivity {
         date = getCurrentdate();
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Fan");
+        myRef = database.getReference("PoultryData").child("1000");
 
 
         getData();
@@ -78,19 +79,19 @@ public class ShowerActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    String value = snapshot.child("Shower").getValue(String.class);
-
+                    String value = snapshot.child("Ultrasonic").getValue(String.class);
+                    tv_temp_dateTime.setText(time+" "+date);
                     assert value != null;
                     if (value.equals("0"))
                     {
-                        tv_message.setText("Shower is Off");
-                        bulb_off_image.setVisibility(View.VISIBLE);
-                        bulb_on_image.setVisibility(View.GONE);
+                        tv_message.setText("No Bird's in Nest");
+//                        bulb_off_image.setVisibility(View.VISIBLE);
+//                        bulb_on_image.setVisibility(View.GONE);
                     }else if (value.equals("1"))
                     {
-                        tv_message.setText("Shower is On");
-                        bulb_off_image.setVisibility(View.GONE);
-                        bulb_on_image.setVisibility(View.VISIBLE);
+                        tv_message.setText("Bird's in Nest");
+//                        bulb_off_image.setVisibility(View.GONE);
+//                        bulb_on_image.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -104,7 +105,7 @@ public class ShowerActivity extends AppCompatActivity {
 
     private void saveData(String value,String message)
     {
-        database.getReference().child("Fan").child("Shower").setValue(value).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.getReference().child("1000").child("Ultrasonic").setValue(value).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())

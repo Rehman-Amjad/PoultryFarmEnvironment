@@ -6,20 +6,26 @@ public class User {
     String Humidity;
     String Temperature;
     String DateTime;
-    String Motor;
+    String Birdweight;
+    String Ultrasonic;
+    String WTemperature;
     String img;
 
-    public User(String id, String humidity, String temperature, String dateTime, String motor, String img) {
+
+    public User(String id, String humidity, String temperature, String dateTime, String birdweight, String ultrasonic, String WTemperature, String img) {
         Id = id;
         Humidity = humidity;
         Temperature = temperature;
         DateTime = dateTime;
-        Motor = motor;
+        Birdweight = birdweight;
+        Ultrasonic = ultrasonic;
+        this.WTemperature = WTemperature;
         this.img = img;
     }
 
     public User() {
     }
+
 
     public String getId() {
         return Id;
@@ -53,12 +59,28 @@ public class User {
         DateTime = dateTime;
     }
 
-    public String getMotor() {
-        return Motor;
+    public String getBirdweight() {
+        return Birdweight;
     }
 
-    public void setMotor(String motor) {
-        Motor = motor;
+    public void setBirdweight(String birdweight) {
+        Birdweight = birdweight;
+    }
+
+    public String getUltrasonic() {
+        return Ultrasonic;
+    }
+
+    public void setUltrasonic(String ultrasonic) {
+        Ultrasonic = ultrasonic;
+    }
+
+    public String getWTemperature() {
+        return WTemperature;
+    }
+
+    public void setWTemperature(String WTemperature) {
+        this.WTemperature = WTemperature;
     }
 
     public String getImg() {

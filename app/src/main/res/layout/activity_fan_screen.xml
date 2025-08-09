@@ -130,7 +130,7 @@
                 android:id="@+id/tv_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Humidity's Fan"
+                android:text="Exhuast's Fan"
                 android:padding="10dp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"

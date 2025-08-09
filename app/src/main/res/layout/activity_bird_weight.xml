@@ -2,15 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A0B389"
-    tools:context=".HumidityScreen">
-
+    android:background="@color/LightGreen"
+    tools:context=".BirdWeightActivity">
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -35,11 +34,10 @@
             >
 
 
-
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@drawable/humidity_temp_green"
+                android:src="@drawable/temperature"
                 />
 
             <TextView
@@ -48,45 +46,7 @@
                 android:textSize="16sp"
                 android:padding="20dp"
                 android:textColor="@color/black"
-                android:text="Humidity: "
-                />
-
-            <TextView
-                android:id="@+id/tv_humidity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:padding="20dp"
-                android:layout_marginLeft="25dp"
-                android:textColor="@color/black"
-                android:text=": "
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center|start"
-            >
-
-
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/humidity_temp_green"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:padding="20dp"
-                android:textColor="@color/black"
-                android:text="Temperature: "
+                android:text="Bird Weight: "
                 />
 
             <TextView
@@ -96,11 +56,10 @@
                 android:textSize="16sp"
                 android:padding="20dp"
                 android:textColor="@color/black"
-                android:text=": "
+                android:text=""
                 />
 
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -131,10 +90,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:padding="5dp"
-                android:layout_marginLeft="5dp"
+                android:padding="20dp"
+                android:layout_marginLeft="9dp"
                 android:textColor="@color/black"
-                android:text=" "
+                android:text=""
                 />
 
         </LinearLayout>
@@ -147,6 +106,8 @@
             android:layout_height="wrap_content"
             android:text="back"
             />
+
+
 
 
 

@@ -3,24 +3,33 @@
 
     <item android:id="@+id/menu_humidy"
         android:icon="@drawable/humidity_temp"
-        android:title="Humidity"/>
+        android:title="Humidity &amp; Temperature"/>
 
     <item android:id="@+id/menu_temp"
         android:icon="@drawable/temperature"
-        android:title="Temperature"/>
+        android:title="Water Temperature"/>
 
 
     <item android:id="@+id/menu_fan"
         android:icon="@drawable/humidity_fan"
-        android:title="Fan"/>
+        android:title="Fan &amp; Exhuast Fan"/>
 
-    <item android:id="@+id/menu_bulb"
-        android:icon="@drawable/ic_bulb"
-        android:title="Bulb"/>
+<!--    <item android:id="@+id/menu_bulb"-->
+<!--        android:icon="@drawable/ic_bulb"-->
+<!--        android:title="Exhuast Fan"/>-->
 
     <item android:id="@+id/menu_shower"
         android:icon="@drawable/ic_shower"
-        android:title="Shower"/>
+        android:title="Ultrasonic"/>
+
+
+    <item android:id="@+id/menu_weight"
+        android:icon="@drawable/ic_shower"
+        android:title="Bird's Weight"/>
+
+<!--    <item android:id="@+id/menu_waterLevel"-->
+<!--        android:icon="@drawable/ic_shower"-->
+<!--        android:title="Water Level"/>-->
 
     <item android:id="@+id/menu_show_all_data"
         android:icon="@drawable/ic_show"

@@ -64,7 +64,7 @@ public class TemperatureScreen extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                String value = snapshot.child("Temperature").getValue(String.class);
+                String value = snapshot.child("WTemperature").getValue(String.class);
                 String fireImage = snapshot.child("img").getValue(String.class);
                 tv_temperature.setText(value+" C");
                 tv_temp_dateTime.setVisibility(View.VISIBLE);

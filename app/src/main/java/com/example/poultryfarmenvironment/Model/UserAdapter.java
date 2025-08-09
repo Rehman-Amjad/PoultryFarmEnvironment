@@ -58,6 +58,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
         holder.tvId.setText("Record No: " + user.getId());
         holder.tv_temp.setText("Temperature: " + user.getTemperature()+" C");
         holder.tv_humidity.setText("Humidity: " + user.getHumidity() + " %");
+        holder.tv_weight.setText("Bird's Weight: " + user.getBirdweight() + "gm");
+        holder.tv_ultrasonic.setText("Ultrasonic: " + user.getUltrasonic() + "%");
         holder.tv_DateTime.setText("Date & Time: " + user.getDateTime());
 
         
@@ -71,7 +73,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvId,tv_temp,tv_humidity,tv_DateTime;
+        TextView tvId,tv_temp,tv_humidity,tv_DateTime,tv_weight,tv_ultrasonic;
         ImageView imageView;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +83,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
             tv_temp=itemView.findViewById(R.id.tv_temp);
             tv_humidity=itemView.findViewById(R.id.tv_humidity);
             tv_DateTime=itemView.findViewById(R.id.tv_DateTime);
+            tv_weight=itemView.findViewById(R.id.tv_weight);
+            tv_ultrasonic=itemView.findViewById(R.id.tv_ultrasonic);
 
 
 

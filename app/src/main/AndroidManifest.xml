@@ -9,29 +9,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PoultryFarmEnvironment">
         <activity
+            android:name=".BirdWeightActivity"
+            android:exported="false" />
+        <activity
             android:name=".ShowerActivity"
             android:exported="false" />
         <activity
             android:name=".BulbActivity"
             android:exported="false" />
-        <activity android:name=".FireShowData"
-            android:exported="false"
-            />
-        <activity android:name=".FanScreen"
-            android:exported="false"
-            />
-        <activity android:name=".TemperatureScreen"
-            android:exported="false"
-            />
-        <activity android:name=".HumidityScreen"
-            android:exported="false"
-            />
-        <activity android:name=".DashboardScreen"
-            android:exported="false"
-            />
-        <activity android:name=".LoginScreen"
-            android:exported="false"
-            />
+        <activity
+            android:name=".FireShowData"
+            android:exported="false" />
+        <activity
+            android:name=".FanScreen"
+            android:exported="false" />
+        <activity
+            android:name=".TemperatureScreen"
+            android:exported="false" />
+        <activity
+            android:name=".HumidityScreen"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardScreen"
+            android:exported="false" />
+        <activity
+            android:name=".LoginScreen"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

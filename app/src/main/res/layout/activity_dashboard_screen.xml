@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="Smart Aviculture App"
+                    android:text="BirdBuddy: A Smart Birdhouse with Tracking and Water Feeder"
                     android:textAlignment="center"
                     android:textColor="@color/Green"
                     android:textSize="22sp" />

@@ -49,11 +49,49 @@
             <ImageView
                 android:id="@+id/bulb_off_image"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/shower_off"
-                android:visibility="invisible"
+                android:layout_height="250dp"
+                android:src="@drawable/bird_nest"
+                android:visibility="visible"
                 android:layout_below="@id/tv_message"
                 />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center|start"
+                >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_date"
+                    />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="20dp"
+                    android:textColor="@color/black"
+                    android:text="Date / Time: "
+                    />
+
+                <TextView
+                    android:id="@+id/tv_temp_dateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="20dp"
+                    android:layout_marginLeft="9dp"
+                    android:textColor="@color/black"
+                    android:text=""
+                    />
+
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/bulb_on_image"
@@ -71,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:visibility="gone"
                 android:layout_below="@id/bulb_on_image"
                 >
                 <Button

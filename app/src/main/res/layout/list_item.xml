@@ -17,10 +17,9 @@
 
         <ImageView
             android:id="@+id/card_image"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_gravity="center"
             android:layout_height="150dp"
-
             />
 
         <LinearLayout
@@ -106,7 +105,57 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
 
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/humidity_temp"
+                />
+
+            <TextView
+                android:id="@+id/tv_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bird's Weight: "
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
+
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/humidity_temp"
+                />
+
+            <TextView
+                android:id="@+id/tv_ultrasonic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ultrasonic: "
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
