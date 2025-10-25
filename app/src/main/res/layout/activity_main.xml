@@ -13,7 +13,7 @@
         android:id="@+id/img1"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@drawable/birdss"
+        android:src="@drawable/poutry_image"
 
 
         />
@@ -25,7 +25,8 @@
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-black"
         android:padding="10dp"
-        android:text="BirdBuddy: A Smart Birdhouse with Tracking and Water Feeder"
+        android:textAlignment="center"
+        android:text="IOT BASED ENVIRONMENTAL CONTROL FOR POULTRY FARM USING ARDUINO"
         android:textColor="#FFFFFF"
         android:textSize="26sp" />
 

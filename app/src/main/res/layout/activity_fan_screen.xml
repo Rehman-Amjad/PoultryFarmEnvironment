@@ -40,7 +40,7 @@
                 android:id="@+id/tv_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Temperature's Fan"
+                android:text="Fan Info"
                 android:padding="10dp"
                 android:gravity="center"
                 android:fontFamily="sans-serif-black"
@@ -117,94 +117,6 @@
                 android:layout_below="@+id/tv_hum_temp"/>
 
         </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-
-            <TextView
-                android:id="@+id/tv_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Exhuast's Fan"
-                android:padding="10dp"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif-black"
-                android:textColor="@color/Green"
-                android:textSize="16sp"
-
-                />
-
-            <ImageView
-                android:id="@+id/img_Hum_fan"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/fantwo"
-                android:layout_below="@id/tv_two"
-                />
-
-            <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/gif_two"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/fanon"
-                android:visibility="invisible"
-                android:layout_below="@id/tv_two"
-                />
-
-
-            <LinearLayout
-                android:id="@+id/layout_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_below="@id/gif_two"
-
-                >
-
-                <Button
-                    android:id="@+id/hum_fan_on"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ON"
-                    android:layout_marginRight="5dp"
-
-                    />
-
-                <Button
-                    android:id="@+id/hum_fan_off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="OFF"
-                    android:layout_marginLeft="5dp"
-
-
-                    />
-
-            </LinearLayout>
-
-
-
-            <TextView
-                android:id="@+id/tv_hum_fan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Result:"
-                android:textSize="18sp"
-                android:textColor="#FF5722"
-                android:fontFamily="sans-serif-black"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/layout_two"
-                />
-
-        </RelativeLayout>
-
 
     </LinearLayout>
 

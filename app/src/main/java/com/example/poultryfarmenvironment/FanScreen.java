@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,11 +27,11 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class FanScreen extends AppCompatActivity {
 
-    ImageView img_Hum_temp,img_Hum_fan,img_back;
-    Button hum_temp_on,hum_temp_off,hum_fan_on,hum_fan_off;
-    TextView tv_hum_temp,tv_hum_fan;
+    ImageView img_Hum_temp,img_back;
+    Button hum_temp_on,hum_temp_off;
+    TextView tv_hum_temp;
 
-    GifImageView gif_one,gif_two;
+    GifImageView gif_one;
 
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -43,16 +45,11 @@ public class FanScreen extends AppCompatActivity {
         setContentView(R.layout.activity_fan_screen);
 
         img_Hum_temp=findViewById(R.id.img_Hum_temp);
-        img_Hum_fan=findViewById(R.id.img_Hum_fan);
         hum_temp_on=findViewById(R.id.hum_temp_on);
         hum_temp_off=findViewById(R.id.hum_temp_off);
-        hum_fan_on=findViewById(R.id.hum_fan_on);
-        hum_fan_off=findViewById(R.id.hum_fan_off);
         tv_hum_temp=findViewById(R.id.tv_hum_temp);
-        tv_hum_fan=findViewById(R.id.tv_hum_fan);
 
         gif_one=findViewById(R.id.gif_one);
-        gif_two=findViewById(R.id.gif_two);
         img_back=findViewById(R.id.img_back);
 
 
@@ -61,11 +58,11 @@ public class FanScreen extends AppCompatActivity {
         date = getCurrentdate();
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Fan");
+        myRef = database.getReference("poultry");
 
         gif_one.setVisibility(View.INVISIBLE);
-        gif_two.setVisibility(View.INVISIBLE);
 
+        fetchValues();
 
 
         img_back.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +85,7 @@ public class FanScreen extends AppCompatActivity {
                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
 
-                       myRef.child("FanTemperature").setValue("0");
+                       myRef.child("fan").setValue("0");
                        tv_hum_temp.setText("Fan OFF");
 
                        gif_one.setVisibility(View.INVISIBLE);
@@ -127,7 +124,7 @@ public class FanScreen extends AppCompatActivity {
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
 
-                        myRef.child("FanTemperature").setValue("1");
+                        myRef.child("fan").setValue("1");
                         tv_hum_temp.setText("Fan ON");
                         gif_one.setVisibility(View.VISIBLE);
                         img_Hum_temp.setVisibility(View.INVISIBLE);
@@ -158,91 +155,35 @@ public class FanScreen extends AppCompatActivity {
         });
 
 
-        hum_fan_on.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private  void fetchValues(){
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                myRef.addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Object humidityObj = snapshot.child("fan").getValue();
 
+                    Log.d("FANVALUE", "onDataChange: Fan Va;ue"+ humidityObj);
 
-                        myRef.child("HumidityFan").setValue("1");
-                        tv_hum_fan.setText("Fan ON");
-                        gif_two.setVisibility(View.VISIBLE);
-                        img_Hum_fan.setVisibility(View.INVISIBLE);
+                    if (humidityObj != null) {
+                        String humidity = humidityObj.toString();
 
-
-
-                    }
-
-                    @Override
-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        if(humidity.equals("0")){
+                            tv_hum_temp.setText("Fan is Off");
+                        }else{
+                            tv_hum_temp.setText("Fan is On");
+                        }
 
                     }
+                }
+            }
 
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Error: " + error.getMessage());
             }
         });
-
-        hum_fan_off.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myRef.addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-
-                        myRef.child("HumidityFan").setValue("0");
-                        tv_hum_fan.setText("Fan Off");
-
-                        img_Hum_fan.setVisibility(View.VISIBLE);
-                        gif_two.setVisibility(View.INVISIBLE);
-
-                    }
-
-                    @Override
-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-            }
-        });
-
-
-
-
-
-
-
     }
 
     private String getTimeWithAmPm()

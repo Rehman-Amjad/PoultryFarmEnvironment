@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,7 +61,7 @@ public class BulbActivity extends AppCompatActivity {
         date = getCurrentdate();
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Fan");
+        myRef = database.getReference("poultry");
 
         getData();
 
@@ -76,12 +77,12 @@ public class BulbActivity extends AppCompatActivity {
 
     private void getData()
     {
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    String value = snapshot.child("Blub").getValue(String.class);
+                    String value = snapshot.child("light").getValue(String.class);
 
                     assert value != null;
                     if (value.equals("0"))
@@ -107,7 +108,7 @@ public class BulbActivity extends AppCompatActivity {
 
     private void saveData(String value,String message)
     {
-        database.getReference().child("Fan").child("Blub").setValue(value).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.getReference().child("poultry").child("light").setValue(value).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
@@ -124,6 +125,39 @@ public class BulbActivity extends AppCompatActivity {
         });
     }
 
+
+    private  void fetchValues(){
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Object humidityObj = snapshot.child("light").getValue();
+
+                    Log.d("FANVALUE", "onDataChange: Fan Va;ue"+ humidityObj);
+
+                    if (humidityObj != null) {
+                        String humidity = humidityObj.toString();
+
+                        if(humidity.equals("0")){
+                            tv_message.setText("Light is Off");
+                            bulb_off_image.setVisibility(View.VISIBLE);
+                            bulb_on_image.setVisibility(View.GONE);
+                        }else{
+                            tv_message.setText("Light is On");
+                            bulb_off_image.setVisibility(View.GONE);
+                            bulb_on_image.setVisibility(View.VISIBLE);
+                        }
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Error: " + error.getMessage());
+            }
+        });
+    }
     private String getTimeWithAmPm()
     {
         return new SimpleDateFormat("hh:mm a", Locale.getDefault()).format(new Date());

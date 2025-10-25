@@ -10,16 +10,19 @@ import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
@@ -30,10 +33,7 @@ public class HumidityScreen extends AppCompatActivity {
 
     TextView tv_temperature,tv_temp_dateTime,tv_humidity;
     ImageView img;
-
-
     Button btn_back;
-
     FirebaseDatabase database;
     DatabaseReference myRef;
     String time,date;
@@ -55,49 +55,61 @@ public class HumidityScreen extends AppCompatActivity {
         date = getCurrentdate();
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("PoultryData");
+        myRef = database.getReference();
 
-        myRef.addChildEventListener(new ChildEventListener() {
+        myRef.child("DHT11").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Object humidityObj = snapshot.child("Humidity").getValue();
+                    Object tempObj = snapshot.child("Temperature").getValue();
 
-                String value = snapshot.child("Humidity").getValue(String.class);
-                String temp = snapshot.child("Temperature").getValue(String.class);
-                String fireImage = snapshot.child("img").getValue(String.class);
-                tv_humidity.setText(value+" %");
-                tv_temperature.setText(temp+"C");
-                tv_temp_dateTime.setVisibility(View.VISIBLE);
-                tv_temp_dateTime.setText(time+" "+date);
+                    if (humidityObj != null && tempObj != null) {
+                        String humidity = humidityObj.toString();
+                        String temperature = tempObj.toString();
 
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                byte[] imageBytes = baos.toByteArray();
-                imageBytes = Base64.decode(fireImage, Base64.DEFAULT);
-                Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                img.setImageBitmap(decodedImage);
-
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                        tv_humidity.setText(humidity + " %");
+                        tv_temperature.setText(temperature + " °C");
+                    }
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.e("FirebaseError", "Error: " + error.getMessage());
             }
         });
+
+//        myRef.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//                String value = snapshot.child("Humidity").getValue(String.class);
+//                String temp = snapshot.child("Temperature").getValue(String.class);
+//                tv_humidity.setText(value+" %");
+//                tv_temperature.setText(temp+"C");
+//                tv_temp_dateTime.setVisibility(View.VISIBLE);
+//                tv_temp_dateTime.setText(time+" "+date);
+//            }
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
 
 

@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="BirdBuddy: A Smart Birdhouse with Tracking and Water Feeder"
+                    android:text="IOT BASED ENVIRONMENTAL CONTROL FOR POULTRY FARM USING ARDUINO"
                     android:textAlignment="center"
                     android:textColor="@color/Green"
                     android:textSize="22sp" />
@@ -69,7 +69,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/mainbackground"
+                    android:src="@drawable/poutry_image"
                     />
             </LinearLayout>
 

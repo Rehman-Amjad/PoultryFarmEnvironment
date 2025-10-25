@@ -77,11 +77,11 @@ public class DashboardScreen extends AppCompatActivity {
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-//                    case R.id.menu_bulb:
-//                        Intent bulbIntent=new Intent(DashboardScreen.this,BulbActivity.class);
-//                        startActivity(bulbIntent);
-//                        drayerLayout.closeDrawer(GravityCompat.START);
-//                        break;
+                    case R.id.menu_bulb:
+                        Intent bulbIntent=new Intent(DashboardScreen.this,BulbActivity.class);
+                        startActivity(bulbIntent);
+                        drayerLayout.closeDrawer(GravityCompat.START);
+                        break;
 
                     case R.id.menu_shower:
                         Intent showerIntent=new Intent(DashboardScreen.this,ShowerActivity.class);
@@ -104,11 +104,11 @@ public class DashboardScreen extends AppCompatActivity {
 
 
 
-                    case R.id.menu_show_all_data:
-                        Intent showIntent=new Intent(DashboardScreen.this,FireShowData.class);
-                        startActivity(showIntent);
-                        drayerLayout.closeDrawer(GravityCompat.START);
-                        break;
+//                    case R.id.menu_show_all_data:
+//                        Intent showIntent=new Intent(DashboardScreen.this,FireShowData.class);
+//                        startActivity(showIntent);
+//                        drayerLayout.closeDrawer(GravityCompat.START);
+//                        break;
 
 
                     case R.id.menu_logout:
