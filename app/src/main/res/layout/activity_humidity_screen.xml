@@ -23,6 +23,7 @@
             android:id="@+id/img"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:src="@drawable/hum_pautry"
 
             />
 
@@ -103,41 +104,35 @@
 
 
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center|start"
-            >
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_date"
+            android:text="Date: "
+            android:textColor="@color/Green"
+            android:textSize="16sp"
+            />
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_date"
-                />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:padding="20dp"
-                android:textColor="@color/black"
-                android:text="Date / Time: "
-                />
-
-            <TextView
-                android:id="@+id/tv_temp_dateTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:padding="5dp"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/black"
-                android:text=" "
-                />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_date"
+            android:text="Date: "
+            android:textColor="@color/Green"
+            android:textSize="16sp"
+            />
 
 
         <Button

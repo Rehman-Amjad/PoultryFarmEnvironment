@@ -31,7 +31,7 @@ import java.util.Locale;
 
 public class HumidityScreen extends AppCompatActivity {
 
-    TextView tv_temperature,tv_temp_dateTime,tv_humidity;
+    TextView tv_temperature,tv_date,tv_time,tv_humidity;
     ImageView img;
     Button btn_back;
     FirebaseDatabase database;
@@ -44,18 +44,21 @@ public class HumidityScreen extends AppCompatActivity {
         setContentView(R.layout.activity_humidity_screen);
 
         tv_temperature=findViewById(R.id.tv_temperature);
-        tv_temp_dateTime=findViewById(R.id.tv_temp_dateTime);
         img=findViewById(R.id.img);
         btn_back=findViewById(R.id.btn_back);
         tv_humidity=findViewById(R.id.tv_humidity);
+        tv_date = findViewById(R.id.tv_date);
+        tv_time = findViewById(R.id.tv_time);
 
-        tv_temp_dateTime.setVisibility(View.INVISIBLE);
 
         time=getTimeWithAmPm();
         date = getCurrentdate();
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
+
+        tv_date.setText("Date: "+date);
+        tv_time.setText("Time: "+time);
 
         myRef.child("DHT11").addValueEventListener(new ValueEventListener() {
             @Override

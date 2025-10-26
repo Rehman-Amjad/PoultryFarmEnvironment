@@ -27,9 +27,9 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class FanScreen extends AppCompatActivity {
 
-    ImageView img_Hum_temp,img_back;
-    Button hum_temp_on,hum_temp_off;
-    TextView tv_hum_temp;
+    ImageView img_Hum_temp;
+    Button hum_temp_on,hum_temp_off,img_back;
+    TextView tv_hum_temp,tv_date,tv_time;
 
     GifImageView gif_one;
 
@@ -48,7 +48,8 @@ public class FanScreen extends AppCompatActivity {
         hum_temp_on=findViewById(R.id.hum_temp_on);
         hum_temp_off=findViewById(R.id.hum_temp_off);
         tv_hum_temp=findViewById(R.id.tv_hum_temp);
-
+        tv_date = findViewById(R.id.tv_date);
+        tv_time = findViewById(R.id.tv_time);
         gif_one=findViewById(R.id.gif_one);
         img_back=findViewById(R.id.img_back);
 
@@ -61,6 +62,9 @@ public class FanScreen extends AppCompatActivity {
         myRef = database.getReference("poultry");
 
         gif_one.setVisibility(View.INVISIBLE);
+
+        tv_date.setText("Date: "+date);
+        tv_time.setText("Time: "+time);
 
         fetchValues();
 

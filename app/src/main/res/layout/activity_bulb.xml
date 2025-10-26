@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A0B389"
     tools:context=".BulbActivity">
 
     <LinearLayout
@@ -14,14 +15,6 @@
         android:gravity="center|top"
         >
 
-        <ImageView
-            android:id="@+id/img_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-
-            android:src="@drawable/ic_back_arrow"
-            android:layout_gravity="start"
-            />
 
 
         <LinearLayout
@@ -33,14 +26,13 @@
             >
 
             <TextView
-                android:id="@+id/tv_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Please wait fetching data on database"
+                android:text="Light Info"
                 android:textColor="@color/Green"
                 android:textSize="16sp"
 
@@ -108,14 +100,63 @@
                 android:layout_below="@id/layout_one"
                 />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/Green"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/tv_hum_temp"/>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Please wait fetching data on database"
+            android:textColor="@color/Green"
+            android:textSize="16sp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_date"
+            android:text="Date: "
+            android:textColor="@color/Green"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_date"
+            android:text="Date: "
+            android:textColor="@color/Green"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/img_back"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:backgroundTint="@color/Green"
+            android:layout_marginRight="5dp"
+
+            />
 
     </LinearLayout>
 

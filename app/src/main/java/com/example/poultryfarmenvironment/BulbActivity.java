@@ -32,13 +32,13 @@ import java.util.Locale;
 
 public class BulbActivity extends AppCompatActivity {
 
-    ImageView img_back,bulb_off_image,bulb_on_image;
-    TextView tv_message;
+    ImageView bulb_off_image,bulb_on_image;
+    TextView tv_message,tv_date,tv_time;
 
     FirebaseDatabase database;
     DatabaseReference myRef;
     String time,date;
-    Button btn_on,btn_off;
+    Button btn_on,btn_off,img_back;
 
 
     @Override
@@ -52,6 +52,8 @@ public class BulbActivity extends AppCompatActivity {
         tv_message = findViewById(R.id.tv_message);
         btn_on = findViewById(R.id.btn_on);
         btn_off = findViewById(R.id.btn_off);
+        tv_date = findViewById(R.id.tv_date);
+        tv_time = findViewById(R.id.tv_time);
 
         img_back.setOnClickListener(v -> {
             onBackPressed();
@@ -64,6 +66,10 @@ public class BulbActivity extends AppCompatActivity {
         myRef = database.getReference("poultry");
 
         getData();
+
+
+        tv_date.setText("Date: "+date);
+        tv_time.setText("Time: "+time);
 
         btn_on.setOnClickListener(v -> {
             saveData("1","Bulb is On");
@@ -113,14 +119,14 @@ public class BulbActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
                 {
-                    Toast.makeText(BulbActivity.this, message, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(BulbActivity.this, message, Toast.LENGTH_SHORT).show();
                     getData();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(BulbActivity.this, "error", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(BulbActivity.this, "error", Toast.LENGTH_SHORT).show();
             }
         });
     }
