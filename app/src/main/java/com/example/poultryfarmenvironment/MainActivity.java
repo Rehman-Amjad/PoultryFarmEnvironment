@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally {
-                    Intent intent=new Intent(MainActivity.this, DashboardScreen.class);
+                    Intent intent=new Intent(MainActivity.this, LoginScreen.class);
                     startActivity(intent);
                     finish();
                 }

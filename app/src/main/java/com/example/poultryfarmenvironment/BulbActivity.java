@@ -72,11 +72,11 @@ public class BulbActivity extends AppCompatActivity {
         tv_time.setText("Time: "+time);
 
         btn_on.setOnClickListener(v -> {
-            saveData("1","Bulb is On");
+            saveData("0","Bulb is On");
         });
 
         btn_off.setOnClickListener(v -> {
-            saveData("0","Bulb is off");
+            saveData("1","Bulb is off");
         });
 
     }
@@ -91,12 +91,12 @@ public class BulbActivity extends AppCompatActivity {
                     String value = snapshot.child("light").getValue(String.class);
 
                     assert value != null;
-                    if (value.equals("0"))
+                    if (value.equals("1"))
                     {
                         tv_message.setText("Bulb is Off");
                         bulb_off_image.setVisibility(View.VISIBLE);
                         bulb_on_image.setVisibility(View.GONE);
-                    }else if (value.equals("1"))
+                    }else if (value.equals("0"))
                     {
                         tv_message.setText("Bulb is On");
                         bulb_off_image.setVisibility(View.GONE);
@@ -144,7 +144,7 @@ public class BulbActivity extends AppCompatActivity {
                     if (humidityObj != null) {
                         String humidity = humidityObj.toString();
 
-                        if(humidity.equals("0")){
+                        if(humidity.equals("1")){
                             tv_message.setText("Light is Off");
                             bulb_off_image.setVisibility(View.VISIBLE);
                             bulb_on_image.setVisibility(View.GONE);
