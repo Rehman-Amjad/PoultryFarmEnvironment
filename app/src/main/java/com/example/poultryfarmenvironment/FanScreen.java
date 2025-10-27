@@ -89,7 +89,7 @@ public class FanScreen extends AppCompatActivity {
                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
 
-                       myRef.child("fan").setValue("1");
+                       myRef.child("fan").setValue(1);
                        tv_hum_temp.setText("Fan OFF");
 
                        gif_one.setVisibility(View.INVISIBLE);
@@ -128,7 +128,7 @@ public class FanScreen extends AppCompatActivity {
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
 
-                        myRef.child("fan").setValue("0");
+                        myRef.child("fan").setValue(0);
                         tv_hum_temp.setText("Fan ON");
                         gif_one.setVisibility(View.VISIBLE);
                         img_Hum_temp.setVisibility(View.INVISIBLE);

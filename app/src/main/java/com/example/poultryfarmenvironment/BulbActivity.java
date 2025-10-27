@@ -65,18 +65,18 @@ public class BulbActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("poultry");
 
-        getData();
+        fetchValues();
 
 
         tv_date.setText("Date: "+date);
         tv_time.setText("Time: "+time);
 
         btn_on.setOnClickListener(v -> {
-            saveData("0","Bulb is On");
+            saveData(0,"Bulb is On");
         });
 
         btn_off.setOnClickListener(v -> {
-            saveData("1","Bulb is off");
+            saveData(1,"Bulb is off");
         });
 
     }
@@ -112,15 +112,16 @@ public class BulbActivity extends AppCompatActivity {
         });
     }
 
-    private void saveData(String value,String message)
+    private void saveData(int value,String message)
     {
-        database.getReference().child("poultry").child("light").setValue(value).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.getReference().child("poultry").child("light")
+                .setValue(value).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
                 {
 //                    Toast.makeText(BulbActivity.this, message, Toast.LENGTH_SHORT).show();
-                    getData();
+                    fetchValues();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
